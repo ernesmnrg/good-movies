@@ -1,26 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { connect } from "react-redux";
+import Header from "./components/homepage/Header";
+import Footer from "./components/homepage/Footer";
+import ImageSlider from "./components/homepage/ImageSlider";
+import MainContent from "./components/homepage/MainContent";
+// import "./App.css";
+// import { getMovies, addMovie, delMovie } from "./store/actions/movie";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <ImageSlider />
+      <MainContent />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
+
+// const App = ({ movies, getMovies, addMovie, delMovie }) => {
+//   const [title, setTitle] = React.useState("");
+
+//   React.useEffect(() => {
+//     getMovies();
+//   }, [getMovies]);
+
+//   const lists = movies.map(item => (
+//     <li key={item.id}>
+//       {item.title}
+//       <button onClick={() => delMovie(item.id)}>delete</button>
+//     </li>
+//   ));
+
+//   const change = e => {
+//     setTitle(e.target.value);
+//   };
+
+//   const submit = e => {
+//     e.preventDefault();
+//     const post = {
+//       title
+//     };
+//     addMovie(post);
+//     setTitle("");
+//   };
+
+//   return (
+//     <div className="App">
+//       <form onSubmit={submit}>
+//         <input type="text" name="title" placeholder="title" onChange={change} />
+//         <button>add</button>
+//       </form>
+//       {lists}
+//     </div>
+//   );
+// };
+
+// const mapStateToProps = state => {
+//   return {
+//     movies: state.movieListReducer.movies
+//   };
+// };
+
+// export default connect(mapStateToProps, { getMovies, addMovie, delMovie })(App);

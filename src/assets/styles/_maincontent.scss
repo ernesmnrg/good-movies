@@ -1,0 +1,29 @@
+.options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  text-transform: uppercase;
+  // margin-bottom:2em;
+  .active {
+    color: green;
+    border-bottom: solid 2px green;
+  }
+  li {
+    list-style: none;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-bottom: 1em;
+    border-bottom: solid 1px lightgray;
+    font-weight: 600;
+    font-size: 0.8em;
+    color: gray;
+    cursor: pointer;
+    &:hover {
+      color: green;
+      border-bottom-color: green;
+      border-bottom-width: 2px;
+    }
+  }
+}
