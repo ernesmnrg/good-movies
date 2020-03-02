@@ -27,3 +27,40 @@
     }
   }
 }
+
+.movies-grid {
+  font-family: tahoma;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  border: 4px solid white;
+}
+
+.movies-grid:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transition: all 0.3s ease 0s;
+}
+
+.movies-grid:hover:before {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.movies-grid .movies-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.movies-grid .movies-image a {
+  display: block;
+}
+
+.movies-grid .movies-image img {
+  width: 100%;
+  height: auto;
+}

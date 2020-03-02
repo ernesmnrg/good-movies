@@ -14,7 +14,7 @@ const Header = () => {
       <div className="header__list">
         <ul>
           <li className="active">
-            <a href="#signin">SIGN IN</a>
+            <a href="#signin">SIGNIN</a>
           </li>
         </ul>
       </div>
