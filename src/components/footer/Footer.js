@@ -1,10 +1,10 @@
 import React from "react";
-import "../../assets/styles/_footers.scss";
-import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+import "../footer/_footers.scss";
+// import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="container">
+    <div className="container__footer">
       <div className="footer">
         <div className="row row-1">
           <div className="footer__image">
@@ -37,7 +37,7 @@ const Footer = () => {
 
           <div className="social">
             <p>Follow us on</p>
-            <span>
+            {/* <span>
               <FaInstagram />
             </span>
             <span>
@@ -45,12 +45,13 @@ const Footer = () => {
             </span>
             <span>
               <FaTwitter />
-            </span>
+            </span> */}
           </div>
         </div>
+      </div>
+      <div className="footer">
         <div className="hr">
-          {/* <hr /> <hr />
-          <p>Copyright &copy; 2020. All right reserved.</p> */}
+          <p>Copyright &copy; 2020. All right reserved.</p>
         </div>
       </div>
     </div>

@@ -1,19 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import Header from "./components/homepage/Header";
-import Footer from "./components/homepage/Footer";
-import ImageSlider from "./components/homepage/ImageSlider";
-import MainContent from "./components/homepage/MainContent";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import ImageSlider from "./components/maincontent/ImageSlider";
+import MainContent from "./components/maincontent/MainContent";
+import Home from "./components/Home";
 // import "./App.css";
 // import { getMovies, addMovie, delMovie } from "./store/actions/movie";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <ImageSlider />
-      <MainContent />
-      <Footer />
+      <Home />
+      <Router>
+        <Route path="/yeah">
+          <Header />
+          <ImageSlider />
+          <MainContent />
+          <Footer />
+        </Route>
+      </Router>
     </div>
   );
 };

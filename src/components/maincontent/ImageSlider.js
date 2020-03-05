@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/styles/_imagesliders.css";
+import "../maincontent/_imagesliders.css";
 
 const ImageSlider = () => {
   return (
