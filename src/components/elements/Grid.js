@@ -1,5 +1,11 @@
 import React from "react";
+import { StyledGrid, StyledGridContent } from "../assets/styles/StyledGrid";
 
-const Grid = () => <div>Grid</div>;
+const Grid = ({ header, children }) => (
+  <StyledGrid>
+    <h1>{header}</h1>
+    <StyledGridContent>{children}</StyledGridContent>
+  </StyledGrid>
+);
 
 export default Grid;

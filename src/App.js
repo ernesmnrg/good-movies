@@ -8,12 +8,14 @@ import MainContent from "./components/maincontent/MainContent";
 import Home from "./components/Home";
 // import "./App.css";
 // import { getMovies, addMovie, delMovie } from "./store/actions/movie";
+import { GlobalStyle } from "../src/components/assets/styles/GlobalStyle";
 
 const App = () => {
   return (
     <div>
       <Home />
       <Router>
+        <GlobalStyle />
         <Route path="/yeah">
           <Header />
           <ImageSlider />
