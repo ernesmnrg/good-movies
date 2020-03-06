@@ -1,15 +1,18 @@
 import React from "react";
 import { StyledImageSlider } from "../assets/styles/StyledImageSlider";
-import { IMAGE_BASE_URL } from "../../config";
 
-const ImageSlider = ({ image, title, text }) => (
-  <StyledImageSlider image={`${IMAGE_BASE_URL}`} title={``} text={``}>
-    <div className="image-content">
-      <div className="image-text">
-        <h1>{title}</h1>
-        <p>{text}</p>
-      </div>
-    </div>
-  </StyledImageSlider>
+const ImageSlider = props => (
+  <div></div>
+  // <StyledImageSlider>
+  //   <div className="slider-container">
+  //     <div className="slider" id="slider">
+  //       <figure>
+  //         {props.data.map(movie => (
+  //           <img src={movie.image} />
+  //         ))}
+  //       </figure>
+  //     </div>
+  //   </div>
+  // </StyledImageSlider>
 );
 export default ImageSlider;

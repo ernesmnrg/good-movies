@@ -1,58 +1,55 @@
 import React, { useState, useEffect } from "react";
 //import the API
-import {
-  API_KEY,
-  API_URL,
-  IMAGE_BASE_URL,
-  BACKDROP_SIZE,
-  POSTER_SIZE
-} from "../config";
+import { API_URL, IMAGE_BASE_URL } from "../config";
 //import components
 import Header from "./elements/Header";
-import ImageSlider from "./elements/ImageSlider";
-import Grid from "./elements/Grid";
+import ImageSlider from "../components/elements/ImageSlider";
+import Grid from "../components/elements/Grid";
 import MovieThumb from "./elements/MovieThumb";
 import NextButton from "./elements/NextButton";
 import Spinner from "./elements/Spinner";
 import Footer from "./elements/Footer";
+import NoImage from "../components/assets/images/no_image.jpg";
+import Movie from "./Movie";
+import { StyledImageSlider } from "../components/assets/styles/StyledImageSlider";
 // import custom hooknya
 import { useHomeFetch } from "./hooks/useHomeFetch";
-import NoImage from "../components/assets/images/no_image.jpg";
 
 const Home = () => {
-  const [
-    {
-      state: { movies, currentPage, totalPages, ImageSlider },
-      loading,
-      error
-    },
-    fetchMovies
-  ] = useHomeFetch();
+  const [{ state, loading, error }, fetchMovies] = useHomeFetch();
   const [searchTerm, setSearchTerm] = useState("");
 
-  if (error) return <div>Something went wrong...</div>;
+  useEffect(() => {
+    fetchMovies(`${API_URL}movies`);
+    console.log(state);
+  }, []);
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
+
+  // error && <div>Something went wrong...</div>;
   //kalo movie nya ga ada return spinner
 
-  return (
+  const loadMoreMovies = () => {};
+
+  return error ? (
+    <div>Something went wrong...</div>
+  ) : (
     <>
       <Header />
-      <ImageSlider />
-      <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
-        {movies.map(movie => (
-          <MovieThumb
-            key={movie.id}
-            clickable
-            image={
-              movie.poster_path
-                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-                : NoImage
-            }
-          />
-        ))}
-      </Grid>
+      <Grid />
+      <StyledImageSlider>
+        <div className="heroimage-content">
+          {state.data.map(movie => (
+            <img src={movie.image} alt="best movies" />
+          ))}
+          <div className="heroimage-text"></div>
+        </div>
+      </StyledImageSlider>
+
       <MovieThumb />
       <NextButton />
-      <Spinner />
+      {loading && <Spinner />}
       <Footer />
     </>
   );

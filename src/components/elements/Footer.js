@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/images/logo.png";
 import "../assets/styles/StyledFooter.scss";
+import FontAwesome from "react-fontawesome";
 
 const Footer = () => {
   return (
@@ -31,21 +32,25 @@ const Footer = () => {
         <div className="row row-3">
           <div className="store">
             <p>Download</p>
-            <img src={require("../../assets/images/appstore.svg")} />
-            <img src={require("../../assets/images/playstore.svg")} />
+            <img
+              src={require("../../assets/images/appstore.svg")}
+              alt="appstore"
+            />
+            <img
+              src={require("../../assets/images/playstore.svg")}
+              alt="playstore"
+            />
           </div>
 
           <div className="social">
             <p>Follow us on</p>
-            {/* <span>
-              <FaInstagram />
-            </span>
             <span>
-              <FaFacebook />
+              <FontAwesome className="fa-twitter" />
+              <FontAwesome className="fa-facebook" />
+              <FontAwesome className="fa-instagram" />
+              <FontAwesome className="fa-pinterest" />
+              <FontAwesome className="fa-linkedin" />
             </span>
-            <span>
-              <FaTwitter />
-            </span> */}
           </div>
         </div>
       </div>

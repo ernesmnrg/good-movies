@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { API_URL, API_KEY } from "../../config";
+import { useState } from "react";
+// import { API_URL, API_KEY } from "../../config";
 
 export const useHomeFetch = () => {
   const [state, setState] = useState({ data: [] });
@@ -12,13 +12,13 @@ export const useHomeFetch = () => {
 
     try {
       const result = await (await fetch(endpoint)).json();
-
+      console.log(result);
       setState(prev => ({
-        // ...prev,
-        // data: [...result, datas],
-        // imageSlider: prev.imageSlider || result.data[0],
-        // currentPage: result.page,
-        // totalPages: result.totalPages
+        ...prev,
+        data: [...result.data.docs],
+        imageSlider: prev.imageSlider || result.data[0],
+        currentPage: result.data.page,
+        totalPages: result.data.totalPages
       }));
     } catch {
       setError(true);
@@ -27,9 +27,9 @@ export const useHomeFetch = () => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    fetchMovies(`${API_URL}movie/favorite/:_id?api_key=${API_KEY}`);
-  }, [fetchMovies]);
+  //   useEffect(() => {
+  //     fetchMovies(`${API_URL}movies`);
+  //   }, [fetchMovies]);
 
   return [{ state, loading, error }, fetchMovies];
 };

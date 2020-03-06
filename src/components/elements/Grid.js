@@ -1,5 +1,8 @@
 import React from "react";
-import { StyledGrid, StyledGridContent } from "../assets/styles/StyledGrid";
+import {
+  StyledGrid,
+  StyledGridContent
+} from "../../components/assets/styles/StyledGrid";
 
 const Grid = ({ header, children }) => (
   <StyledGrid>
